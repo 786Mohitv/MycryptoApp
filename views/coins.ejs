@@ -1,0 +1,90 @@
+<%- include("partials/header") %>
+<body>
+<div class="container" style="margin-top:8rem;">
+
+    <div class="input-group search">
+      <div class="form-outline">
+        <input id="search-focus" type="search" name="search" id="form1" class="form-control" />
+        <label class="form-label" for="form1">Search</label>
+      </div>
+      <button type="submit" onclick="userAction()" id="searchButton" class="btn btn-primary">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+
+
+  <div class="search-list" style="margin-bottom:5rem;" >
+    <ul id="list"  class="dropdown" style="margin-left:41%;list-style: none;">
+
+    </ul>
+  </div>
+
+  <h2><strong>Today's Cryptocurrency Prices by Market Cap</strong></h2>
+
+  <div class="button-bar" style="float:right;">
+    <button class="btn btn-outline-dark rounded-pill"type="button" name="cryptoCurrency">CryptoCurrency</button>
+    <button class="btn btn-md btn-dark rounded-pill"type="button" name="cryptoCurrencyFilters">Filters</button>
+  </div>
+  <div class="coin-list" style="margin-top:3rem;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Coin</th>
+          <th scope="col">1h</th>
+          <th scope="col">24h</th>
+          <th scope="col">7d</th>
+          <th scope="col">24h Volume</th>
+          <th scope="col">Mkt Cap</th>
+        </tr>
+      </thead>
+      <tbody>
+
+          <% pageData.forEach(function(element){ %>
+            <tr>
+                <th scope="row"><%= element.market_cap_rank %></th>
+                <td>
+                  <div class="coin-img" style="display:inline-block;">
+                    <img src="<%= element.image %>" alt="" width="20px" height="20px">
+                  </div>
+                  <div class="coin-name" style="display:inline-block">
+
+                      <a href="/coin/<%= element.id %>" style="color:black;" type="sumbit"><strong><%=  element.name %></strong></a>
+
+                  </div>
+                </td>
+                <td>
+                  <%= element.price_change_percentage_1h_in_currency.toFixed(2) %>%
+                </td>
+                <td>
+                  <%= element.price_change_percentage_24h_in_currency.toFixed(2) %>%
+                </td>
+                <td>
+                  <%= element.price_change_percentage_7d_in_currency.toFixed(2) %>%
+                </td>
+                <td>
+                  <%= element.total_volume %>
+                </td>
+                <td>
+                  <%= element.market_cap %>
+                </td>
+            </tr>
+
+          <% }) %>
+
+
+      </tbody>
+    </table>
+  </div>
+
+  <div style="margin-left: 42rem">
+      <form action="/coin_list" method="post">
+        <button type="submit" name="btn1">Prev</button>
+        <button type="submit" name="btn2">Next</button>
+      </form>
+    </div>
+
+
+</div>
+<script src="/script/search.js" charset="utf-8"></script>
+<%- include("partials/footer") %>

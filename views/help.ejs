@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Coin List</title>
+
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- FontAwesome CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  <!-- Css file -->
+  <link rel="stylesheet" href="/css/master.css">
+  <link rel="stylesheet" href="/css/help.css">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada:ital@0;1&display=swap" rel="stylesheet">
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.css" rel="stylesheet" />
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>
+  <script type="text/javascript" src="/script/front.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Navigation bar -->
+
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color:#C4DDFF;">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="font-family: 'Tiro Kannada', serif;font-weight:bold;" href="#">MyCryptoApp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/coinlist">Market</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/help">Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/account">Account</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+  <!-- https://www.solodev.com/blog/web-design/how-to-create-an-faq-section.stml# refer for FAQ -->
+
+  <div class="text-center">
+    <h2 class="mt-5 mb-5 pt-5">FAQ</h2>
+  </div>
+  <section class="container my-5" id="maincontent">
+    <section id="accordion">
+      <a class="py-3 d-block h-100 w-100 position-relative z-index-1 pr-1 text-secondary border-top" aria-controls="faq-17" aria-expanded="false" data-toggle="collapse" href="#faq-17" role="button">
+        <div class="position-relative">
+          <h2 class="h4 m-0 pr-3">
+            Coin Price, Market Capitalization, Volume - What are they?
+          </h2>
+          <div class="position-absolute top-0 right-0 h-100 d-flex align-items-center">
+            <i class="fa fa-plus"></i>
+          </div>
+        </div>
+      </a>
+      <div class="collapse" id="faq-17" style="">
+        <div class="card card-body border-0 p-0">
+          <p>
+            <strong>Coin Price</strong> refers to the current global volume-weighted average price of a cryptoasset traded on an active cryptoasset exchange.
+          </p>
+
+          <p>
+            <strong>Market Capitalization</strong> is one of the metrics used to measure the relative size of a cryptoasset. Market Capitalization is calculated by multiplying Coin Price with Available Supply.
+          </p>
+
+          <p>
+            <strong>Volume</strong> is the total trading volume of a cryptoasset across all active cryptoasset exchanges.
+          </p>
+
+        </div>
+      </div>
+
+      <a class="py-3 d-block h-100 w-100 position-relative z-index-1 pr-1 text-secondary border-top" aria-controls="faq-18" aria-expanded="false" data-toggle="collapse" href="#faq-18" role="button">
+        <div class="position-relative">
+          <h2 class="h4 m-0 pr-3">
+            How frequently are all the information updated?
+          </h2>
+          <div class="position-absolute top-0 right-0 h-100 d-flex align-items-center">
+            <i class="fa fa-plus"></i>
+          </div>
+        </div>
+      </a>
+      <div class="collapse" id="faq-18" style="">
+        <div class="card card-body border-0 p-0">
+          <p>Price, trading volume, 24h Volume - Updated every 1 to 10 minutes.</p>
+          <p>
+          </p>
+        </div>
+      </div>
+
+
+
+      <a class="py-3 d-block h-100 w-100 position-relative z-index-1 pr-1 text-secondary  border-top" aria-controls="faq-20" aria-expanded="false" data-toggle="collapse" href="#faq-20" role="button">
+        <div class="position-relative">
+          <h2 class="h4 m-0 pr-3">
+            What is the best email to reach you at?
+          </h2>
+          <div class="position-absolute top-0 right-0 h-100 d-flex align-items-center">
+            <i class="fa fa-plus"></i>
+          </div>
+        </div>
+      </a>
+      <div class="collapse" id="faq-20">
+        <div class="card card-body border-0 p-0">
+          <p>The best email for any inquiries is mycryptoapp@gmail.com!</p>
+          <p>
+          </p>
+        </div>
+      </div>
+
+
+
+      <a class="py-3 d-block h-100 w-100 position-relative z-index-1 pr-1 text-secondary  border-top" aria-controls="faq-22" aria-expanded="false" data-toggle="collapse" href="#faq-22" role="button">
+        <div class="position-relative">
+          <h2 class="h4 m-0 pr-3">
+            What is the best time to call?
+          </h2>
+          <div class="position-absolute top-0 right-0 h-100 d-flex align-items-center">
+            <i class="fa fa-plus"></i>
+          </div>
+        </div>
+      </a>
+      <div class="collapse" id="faq-22">
+        <div class="card card-body border-0 p-0">
+          <p>The best time to call is 24/7! We are always available to answer any questions.</p>
+          <p>
+          </p>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <div class="container input-group ms-5 mt-4 ps-5 shadow-textarea form-group">
+    <form>
+      <h5>Didn't Find Your Query ?</h5>
+      <a href="https://www.gmail.com">Write us an email -- mycryptoapp@gmail.com</a>
+    </form>
+
+  </div>
+
+
+</body>
+
+</html>

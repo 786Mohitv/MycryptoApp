@@ -1,0 +1,174 @@
+
+<%- include("partials/header") %>
+<body>
+<!-- Container class -->
+<div class="container" style="margin-top:8rem;">
+
+
+
+  <div class="input-group search">
+    <div class="form-outline">
+      <input id="search-focus" type="search" name="search" id="form1" class="form-control" />
+      <label class="form-label" for="form1">Search</label>
+    </div>
+    <button type="submit" onclick="userAction()" id="searchButton" class="btn btn-primary">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+
+
+<div class="search-list" style="margin-bottom:4rem;" >
+  <ul id="list"  class="dropdown" style="margin-left:41%;list-style: none;">
+
+  </ul>
+</div>
+
+
+  <div class="coin-container">
+    <div class="coin-name">
+      <img style="height: 28px;top: -8px;position: relative;" id="coin_small_image" src="<%=pageData.image.large%>">
+      <span class="coinName"><%=pageData.name%></span>
+      <span class="coinSymbol">(<%=pageData.symbol.toUpperCase()%>)</span><br>
+      <span style="padding-left:2.1rem;">Rank </span> <span class="rank"><%=pageData.market_cap_rank%></span>
+      <a style="margin-left:1rem;" href="<%=pageData.links.homepage[0]%>">🌐Website</a>
+      <a style="margin-left:1rem;" href="<%=pageData.links.repos_url.github[0]%>">
+        <\> Source Code
+      </a>
+
+    </div>
+
+    <div class="coin-detail" style="padding-top:4rem; margin-left:8rem;">
+      <h4 class="text-dark mb-0 font-medium"><span id="coin_price">$<%=pageData.market_data.current_price.usd%></span></h4>
+      <% if(pageData.market_data.price_change_percentage_24h>0){%>
+      <span style="color:green"> (<%=pageData.market_data.price_change_percentage_24h%>%<i class="fa fa-arrow-up"></i>)</span>
+      <%}else{%>
+        <span style="color:red"> (<%=pageData.market_data.price_change_percentage_24h%>%<i class="fa fa-arrow-down"></i>)</span>
+      <%}%>
+      <!-- <span id="coin_price_btc">1 BTC<span style="color:green"> (0%<i class="fa fa-arrow-up"></i>)</span></span>
+      <br>
+      <span id="coin_price_eth">15.760008 ETH<span style="color:green"> (4.2%<i class="fa fa-arrow-up"></i>)</span></span> -->
+    </div>
+  </div>
+
+
+  <!-- Chart -->
+
+  <!-- TradingView Widget BEGIN -->
+  <div style="margin-top:3rem;" class="tradingview-widget-container">
+    <div id="tradingview_f33fe"></div>
+    <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/symbols/BTCUSD/?exchange=COINBASE" rel="noopener" target="_blank"><span class="blue-text"><%=pageData.symbol.toUpperCase()%>USD Chart</span></a> by TradingView</div>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script type="text/javascript">
+      new TradingView.widget({
+        "width": 980,
+        "height": 610,
+        "symbol": "<%=pageData.symbol.toUpperCase()%>USD",
+        "interval": "D",
+        "timezone": "Etc/UTC",
+        "theme": "dark",
+        "style": "1",
+        "locale": "in",
+        "toolbar_bg": "#f1f3f6",
+        "enable_publishing": false,
+        "allow_symbol_change": true,
+        "container_id": "tradingview_f33fe"
+      });
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+
+  <div class="row" style="margin-top:3rem;">
+    <div class=" col-lg-3 col-md-4 col-sm-6">
+      <div class="card-body">
+        <h5 class="card-title">Market Cap</h5>
+        <h6 style="padding-top:1rem;" class="card-text mb-2 text-muted">$<%= pageData.market_data.market_cap.usd %></h6>
+        <h6 class="card-text mb-2 text-muted">₿<%=pageData.market_data.market_cap.btc%></h6>
+      </div>
+    </div>
+    <div class=" col-lg-3 col-md-4 col-sm-6">
+      <div class="card-body">
+        <h5 class="card-title">Total Volume</h5>
+        <h6 style="padding-top:1rem;" class="card-text mb-2 text-muted">$<%=pageData.market_data.total_volume.usd%></h6>
+        <h6 class="card-text mb-2 text-muted">₿<%=pageData.market_data.total_volume.btc%></h6>
+      </div>
+    </div>
+    <div class=" col-lg-3 col-md-4 col-sm-6">
+      <div class="card-body">
+        <h5 class="card-title">24h Low</h5>
+        <h6 style="padding-top:1rem;" class="card-text mb-2 text-muted">$<%=pageData.market_data.low_24h.usd%></h6>
+        <h6 class="card-text mb-2 text-muted">₿<%=pageData.market_data.low_24h.btc%></h6>
+      </div>
+    </div>
+    <div class=" col-lg-3 col-md-4 col-sm-6">
+      <div class="card-body">
+        <h5 class="card-title">24h High</h5>
+        <h6 style="padding-top:1rem;" class="card-text mb-2 text-muted">$<%=pageData.market_data.high_24h.usd%></h6>
+        <h6 class="card-text mb-2 text-muted">₿<%=pageData.market_data.high_24h.btc%></h6>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top:3rem; margin-bottom:2rem;">
+    <div class=" col-lg-3 col-md-4 col-sm-6">
+      <div class="card-body">
+        <h5 class="card-title">Circulating Supply</h5>
+        <h6 style="padding-top:1rem;" class="card-text mb-2 text-muted"><%= pageData.market_data.circulating_supply %></h6>
+        <br>
+      </div>
+    </div>
+    <div class=" col-lg-3 col-md-4 col-sm-6">
+      <div class="card-body">
+        <h5 class="card-title">Total Supply</h5>
+        <h6 style="padding-top:1rem;" class="card-text mb-2 text-muted"><%= pageData.market_data.total_supply %></h6>
+        <br>
+      </div>
+    </div>
+    <div class=" col-lg-3 col-md-4 col-sm-6">
+      <div class="card-body">
+        <h5 class="card-title">All Time High</h5>
+        <h6 style="padding-top:1rem;" class="card-text mb-2 text-muted">$<%= pageData.market_data.ath.usd %></h6>
+        <h6 class="card-text mb-2 text-muted">₿<%= pageData.market_data.ath.btc %></h6>
+      </div>
+    </div>
+    <div class=" col-lg-3 col-md-4 col-sm-6">
+      <div class="card-body">
+        <h5 class="card-title">All Time Low</h5>
+        <h6 style="padding-top:1rem;" class="card-text mb-2 text-muted">$<%= pageData.market_data.atl.usd %></h6>
+        <h6 class="card-text mb-2 text-muted">₿<%= pageData.market_data.atl.btc %></h6>
+      </div>
+    </div>
+  </div>
+
+  <!-- tradingview indicator -->
+
+  <div class="row" style="margin-top:5rem;">
+    <div class="col-lg-6 col-md-4 col-sm-12 coin-desc">
+      <h3>What is <%=pageData.name%>?</h3>
+      <p><%-pageData.description.en%></p>
+    </div>
+    <!-- TradingView Widget BEGIN -->
+    <div class="trading-indicator col-lg-6 col-md-4 col-sm-12">
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/symbols/<%=pageData.symbol.toUpperCase()%>USD/technicals/" rel="noopener" target="_blank"><span class="blue-text">Technical Analysis for BTCUSD</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+          {
+            "interval": "1m",
+            "width": "425",
+            "isTransparent": false,
+            "height": "450",
+            "symbol": "<%=pageData.symbol.toUpperCase()%>USD",
+            "showIntervalTabs": true,
+            "locale": "in",
+            "colorTheme": "dark"
+          }
+        </script>
+      </div>
+      <!-- TradingView Widget END -->
+    </div>
+
+  </div>
+
+</div>
+
+<script src="/script/search.js" charset="utf-8"></script>
+<%- include("partials/footer") %>
